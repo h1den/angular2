@@ -33,4 +33,10 @@ export class AppComponent {
     'Sweetness',
     'Some lines and green color'
   ];
+
+  selectedProduct : Product;
+
+  onBuy(): void {
+    this.selectedProduct = this.product;
+  }
 }

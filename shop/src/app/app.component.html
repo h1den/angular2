@@ -9,3 +9,10 @@
       {{ingredient}}
     </li>
 </ul>
+
+<button (click)="onBuy()">Buy</button>
+
+<div *ngIf="selectedProduct">
+  <h2>Basket</h2>
+  <div>{{selectedProduct.name}} added into bascket!</div>
+</div>
