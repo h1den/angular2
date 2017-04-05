@@ -1,5 +1,11 @@
 <h1>{{product.name}}</h1>
-<h2>{{product.description}}</h2>
-  <div> {{product.price}} </div>
-  <div> {{product.category}} </div>
-  <div> {{product.isAvailable}} </div>
+  <div>Description: {{product.description}}</div>
+  <div>Price: {{product.price}} </div>
+  <div>Category: {{product.category}} </div>
+  <div>Available: {{product.isAvailable}} </div>
+<h2>Ingredients: </h2>
+<ul>  
+    <li *ngFor="let ingredient of ingredients">
+      {{ingredient}}
+    </li>
+</ul>
