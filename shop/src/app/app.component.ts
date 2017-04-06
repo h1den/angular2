@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ProductService } from './product.service';
 import { Product } from './product';
 
@@ -20,7 +21,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getHeroes;  
+    this.getHeroes();  
   }
 
   onBuy(addedProduct): void {

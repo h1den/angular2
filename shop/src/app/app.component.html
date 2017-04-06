@@ -1,12 +1,11 @@
-<h1>{{product.name}}</h1>
-  <div>Description: {{product.description}}</div>
-  <div>Price: {{product.price}} </div>
-  <div>Category: {{product.category}} </div>
-  <div>Available: {{product.isAvailable}} </div>
-<h2>Ingredients: </h2>
+<h1>Products: </h1>
 <ul>  
-    <li *ngFor="let ingredient of ingredients">
-      {{ingredient}}
+    <li *ngFor="let product of products">
+      <h2>{{product.name}}</h2>
+      <div>Description: {{product.description}}</div>
+      <div>Price: {{product.price}} </div>
+      <div>Category: {{product.category}} </div>
+      <div>Available: {{product.isAvailable}} </div>
     </li>
 </ul>
 
