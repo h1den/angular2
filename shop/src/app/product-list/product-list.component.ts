@@ -11,8 +11,9 @@ import { ProductService } from '../product.service';
 export class ProductListComponent implements OnInit {
 
   products: Product[];
-  addedProducts: Product[];
-  
+  addedProducts: Product[] = [];
+  selectedProduct: Product;
+
   constructor (private productService: ProductService) {}
 
   getHeroes(): void {
@@ -25,6 +26,14 @@ export class ProductListComponent implements OnInit {
 
   onBuy(addedProduct): void {
     this.addedProducts.push(addedProduct);
+  }
+
+  onRemove(bascketProduct): void {
+    this.addedProducts = this.addedProducts.filter(obj => obj != bascketProduct);
+  }
+
+  onSelect(product: Product): void {
+    this.selectedProduct = product;
   }
 
 }

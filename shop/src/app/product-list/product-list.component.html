@@ -1,6 +1,8 @@
 <h1>Products: </h1>
-<ul>  
-    <li *ngFor="let product of products">
+<ul class="products">  
+    <li *ngFor="let product of products"
+      [class.selected]="product === selectedProduct"
+      (click)="onSelect(product)">
       <h2>{{product.name}}</h2>
       <div>Description: {{product.description}}</div>
       <div>Price: {{product.price}} </div>
@@ -9,9 +11,13 @@
     </li>
 </ul>
 
-<button (click)="onBuy(product)">Buy</button>
+<button (click)="onBuy(selectedProduct)">Buy</button>
 
-<div *ngIf="selectedProduct">
+<div *ngIf="addedProducts.length > 0">
   <h2>Basket</h2>
-  <div>{{selectedProduct.name}} added into bascket!</div>
+  <ul>  
+    <li *ngFor="let bascketProduct of addedProducts">
+      <div>{{bascketProduct.name}} is in the bascket! <button (click)="onRemove(bascketProduct)"> Remove</button> </div>
+    </li>
+  </ul>
 </div>
