@@ -1,42 +1,29 @@
-import { Component } from '@angular/core';
-
-enum Category {
-    vagetable = 1,
-    fruit = 2,
-    berry = 3
-}
-
-export class Product {
-  name: string;
-  description: string;
-  price: number;
-  category: Category;
-  isAvailable: boolean;
-  
-}
+import { Component, OnInit } from '@angular/core';
+import { ProductService } from './product.service';
+import { Product } from './product';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ProductService]
 })
-export class AppComponent {
-  product: Product = {
-    name: 'Watermelon',
-    description: 'Sweet and juicy',
-    price: 650,
-    category: 3,
-    isAvailable: true
-  };
-  ingredients: String[] = [
-    'Juice',
-    'Sweetness',
-    'Some lines and green color'
-  ];
+export class AppComponent implements OnInit {
 
-  selectedProduct : Product;
+  products: Product[];
+  addedProducts: Product[];
+  
+  constructor (private productService: ProductService) {}
 
-  onBuy(): void {
-    this.selectedProduct = this.product;
+  getHeroes(): void {
+    this.productService.getProducts().then(products => this.products = products);
+  }
+
+  ngOnInit(): void {
+    this.getHeroes;  
+  }
+
+  onBuy(addedProduct): void {
+    this.addedProducts.push(addedProduct);
   }
 }
